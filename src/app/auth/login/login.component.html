@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="card card-container">
+    <img class="img-rounded , center-block" id="profile-img"
+         src="http://www.talan.tn/wp-content/uploads/2015/11/Talan_Tunisie_logo_normal.png"/>
+    <p class="profile-name-card" id="profile-name"></p>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" name="form-signin" novalidate>
+      <span class="reauth-email" id="reauth-email"></span>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control" formControlName="username" id="username" name="username" required
+               type="text"/>
+        <div
+          *ngIf="!loginForm.get('username').valid && (loginForm.get('username').dirty || loginForm.get('username').touched) && loginForm.get('username').hasError('required')"
+          class="help-block">
+          a username is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" formControlName="password" id="password" name="password" required
+               type="password"/>
+        <div
+          *ngIf="!loginForm.get('password').valid && (loginForm.get('password').dirty || loginForm.get('password').touched) && loginForm.get('password').hasError('required')"
+          class="help-block">Password is required
+        </div>
+
+      </div>
+      <div class="checkbox" id="remember">
+
+      </div>
+      <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+    </form><!-- /form -->
+    <!--<a [routerLink]="['/register']" class="btn btn-link">Create new Account!</a>-->
+  </div><!-- /card-container -->
+
+</div><!-- /container -->
